@@ -44,7 +44,7 @@ export function CheckoutPage({ cart }) {
       </div>
 
       <div className="checkout-page">
-        <div className="page-title">Review your order</div>
+        <div className="page-title">Review your orders</div>
 
         <div className="checkout-grid">
           <div className="order-summary">
