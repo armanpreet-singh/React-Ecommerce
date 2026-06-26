@@ -5,7 +5,7 @@ import "./HomePage.css";
 import {ProductGrid} from  "./ProductsGrid"
 
 
-export function HomePage({cart }) {
+export function HomePage({cart,loadCart }) {
   const [products,setProducts] = useState([ ])
   
  
@@ -23,7 +23,7 @@ getHomeData();
       <Header cart ={cart} />
 
       <div className="home-page">
-      <ProductGrid products = {products} />
+      <ProductGrid products = {products} loadCart = {loadCart} />
       </div>
     </>
   );
