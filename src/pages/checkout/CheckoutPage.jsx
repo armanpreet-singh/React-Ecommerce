@@ -16,7 +16,7 @@ export function CheckoutPage({ cart ,loadCart}) {
     .then((response)=>{
       setPaymentSummary(response.data)
     });
-  },[])
+  },[cart])
   return (
     <>
       <title>Checkout</title>
