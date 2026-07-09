@@ -2,7 +2,7 @@
 
 # 🛒 React Ecommerce
 
-![React Ecommerce Banner](./public/images/banner.png)
+![React Ecommerce Banner](./public/images/banner.PNG)
 
 A responsive Ecommerce web application built with **React** and **Vite**, using a **local backend API** for managing cart and product data.
 
