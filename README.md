@@ -221,4 +221,4 @@ If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
 It motivates me to build more awesome projects!
 
 ---
-Made with ❤️ using React & Vite.
+
