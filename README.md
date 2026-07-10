@@ -1,14 +1,22 @@
 <div align="center">
 
-# 🛒 React Ecommerce
+# 🛒 GuildMart - React Ecommerce
 
-![React Ecommerce Banner](./public/images/banner.PNG)
+![GuildMart Banner](./public/images/banner.PNG)
 
-A responsive Ecommerce web application built with **React** and **Vite**, using a **local backend API** for managing cart and product data.
+A full-stack Ecommerce web application built with **React**, **Vite**, **Express.js**, **Sequelize**, and **SQLite**, deployed using **Vercel** and **Render**.
+
+### 🌐 Live Demo
+
+**Frontend:** https://react-ecommerce-nu-snowy.vercel.app/
+
+**Backend API:** https://guildmart.onrender.com
 
 ![React](https://img.shields.io/badge/React-19-blue?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-purple?logo=vite)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
+![Express](https://img.shields.io/badge/Express.js-black?logo=express)
+![SQLite](https://img.shields.io/badge/SQLite-Database-blue?logo=sqlite)
+![Sequelize](https://img.shields.io/badge/Sequelize-ORM-52B0E7?logo=sequelize)
 ![Axios](https://img.shields.io/badge/Axios-API-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -16,32 +24,46 @@ A responsive Ecommerce web application built with **React** and **Vite**, using 
 
 ---
 
-## 📖 About The Project
+# 📖 About The Project
 
-React Ecommerce is a frontend Ecommerce application developed using **React** and **Vite**. The application communicates with a **local backend API** to fetch and display shopping cart data while providing multiple pages for browsing, checkout, order history, and order tracking.
+GuildMart is a modern full-stack Ecommerce application built with **React** and **Vite** for the frontend and **Express.js** with **Sequelize** for the backend.
 
-The project focuses on building a scalable React application using reusable components and client-side routing.
+The application provides a complete online shopping experience including product browsing, shopping cart management, checkout, order history, and order tracking.
+
+The frontend is deployed on **Vercel**, while the backend API is hosted on **Render**.
 
 ---
 
-## ✨ Features
+# 🌐 Live Demo
+
+### 🚀 Frontend
+
+https://react-ecommerce-nu-snowy.vercel.app/
+
+### ⚡ Backend API
+
+https://guildmart.onrender.com
+
+---
+
+# ✨ Features
 
 - 🏠 Home Page
-- 🛍️ Product Display
+- 🛍️ Product Catalog
 - 🛒 Shopping Cart
-- 💳 Checkout Page
-- 📦 Orders Page
+- 💳 Checkout
+- 📦 Orders
 - 🚚 Order Tracking
-- 🔄 Dynamic Data Fetching with Axios
-- 🌐 Client-side Routing
-- ⚡ Local Backend Integration
-- 📱 Responsive Layout
+- 🔄 Dynamic API Integration
+- ⚡ Fast React + Vite Frontend
+- 🌐 REST API Backend
+- 📱 Responsive Design
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠 Tech Stack
 
-### Frontend
+## Frontend
 
 - React 19
 - Vite
@@ -52,18 +74,33 @@ The project focuses on building a scalable React application using reusable comp
 - HTML5
 - CSS3
 
-### Backend
+## Backend
 
-- Local REST API
+- Express.js
+- Sequelize ORM
+- SQLite
+- REST API
+- CORS
+
+## Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
 
 ---
 
-## 📂 Folder Structure
+# 📂 Folder Structure
 
 ```text
 React-Ecommerce/
 │
 ├── ecommerce-backend/
+│   ├── models/
+│   ├── routes/
+│   ├── images/
+│   ├── defaultData/
+│   ├── database.sqlite
+│   └── server.js
 │
 ├── public/
 │
@@ -77,49 +114,46 @@ React-Ecommerce/
 │   │   ├── TrackingPage.jsx
 │   │   └── TrackingPage.css
 │   │
-│   ├── starting-code/
 │   ├── utils/
+│   ├── api.js
 │   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
+│   ├── main.jsx
+│   └── index.css
 │
-├── public/
 ├── package.json
 ├── vite.config.js
-├── eslint.config.js
 └── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
-### Clone the Repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/armanpreet-singh/React-Ecommerce.git
 ```
 
-### Navigate to the Project
+## Navigate into the Project
 
 ```bash
 cd React-Ecommerce
 ```
 
-### Install Dependencies
+## Install Frontend Dependencies
 
 ```bash
 npm install
 ```
 
-### Start the Development Server
+## Start Frontend
 
 ```bash
 npm run dev
 ```
 
-The application will be available at:
+Runs on
 
 ```
 http://localhost:5173
@@ -127,98 +161,105 @@ http://localhost:5173
 
 ---
 
-## ⚙️ Running the Backend
+# ⚙️ Running the Backend
 
-This project uses a local backend located in the **ecommerce-backend** folder.
-
-Open a new terminal:
+Open another terminal.
 
 ```bash
 cd ecommerce-backend
 ```
 
-Install dependencies (if required):
+Install dependencies
 
 ```bash
 npm install
 ```
 
-Run the backend server:
+Start the backend
 
 ```bash
 npm start
 ```
 
-Make sure the backend is running before starting the React application.
+Backend runs on
+
+```
+http://localhost:3000
+```
 
 ---
 
-## 📄 Pages
+# 📄 Pages
 
 | Page | Description |
 |------|-------------|
-| 🏠 Home | Displays products |
-| 🛒 Checkout | Checkout process |
-| 📦 Orders | View placed orders |
-| 🚚 Tracking | Track order status |
+| 🏠 Home | Browse products |
+| 🛒 Checkout | Manage cart and place orders |
+| 📦 Orders | View previous orders |
+| 🚚 Tracking | Track shipped orders |
 
 ---
 
-## 📚 Project Structure
+# 📚 Project Structure
 
-The project is organized into separate folders for better scalability.
-
-- **assets** → Images and static resources
-- **components** → Reusable UI components
-- **pages** → Individual application pages
-- **utils** → Utility/helper functions
-- **ecommerce-backend** → Local backend server
+- **assets** → Images and icons
+- **components** → Reusable React components
+- **pages** → Application pages
+- **utils** → Helper functions
+- **api.js** → Axios API configuration
+- **ecommerce-backend** → Express backend with REST API
 
 ---
 
-## 🎯 Learning Outcomes
+# 🎯 Learning Outcomes
 
-This project helped me strengthen my understanding of:
+This project strengthened my understanding of:
 
 - React Components
 - React Hooks
 - React Router
-- Axios API Calls
-- State Management
-- Component Reusability
-- Local Backend Integration
-- Folder Organization
-- Responsive UI Development
+- REST APIs
+- Axios
+- Express.js
+- Sequelize ORM
+- SQLite Database
+- Backend Routing
+- CRUD Operations
+- Responsive Design
+- Full Stack Deployment
+- Vercel Deployment
+- Render Deployment
 
 ---
 
+# 🔮 Future Improvements
 
-## 🔮 Future Improvements
-
-- User Authentication
-- Product Search
-- Wishlist
-- Online Payment Gateway
-- Admin Dashboard
-- Product Reviews
-- Better State Management
-- Database Integration
+- 🔐 User Authentication
+- ❤️ Wishlist
+- 🔍 Product Search
+- 💳 Online Payments
+- ⭐ Product Reviews
+- 👨‍💼 Admin Dashboard
+- 📊 Analytics
+- 🗄️ PostgreSQL Database
+- 🔔 Email Notifications
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Armanpreet Singh**
 
-- GitHub: https://github.com/armanpreet-singh
+GitHub:
+
+https://github.com/armanpreet-singh
 
 ---
 
-## ⭐ Support
+# ⭐ Support
 
-If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
+If you found this project helpful, please consider giving it a **⭐ Star** on GitHub.
 
-It motivates me to build more awesome projects!
+It motivates me to build more exciting open-source projects!
 
 ---
-
