@@ -2,7 +2,9 @@
 
 # 🛒 React Ecommerce
 
-A responsive Ecommerce web application built with **React** and **Vite**, using a **local backend API** for managing cart and product data. The project demonstrates React fundamentals, routing, API integration, reusable components, and a clean folder structure.
+![React Ecommerce Banner](./public/images/banner.PNG)
+
+A responsive Ecommerce web application built with **React** and **Vite**, using a **local backend API** for managing cart and product data.
 
 ![React](https://img.shields.io/badge/React-19-blue?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-purple?logo=vite)
@@ -219,4 +221,4 @@ If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
 It motivates me to build more awesome projects!
 
 ---
-Made with ❤️ using React & Vite.
+
