@@ -20,7 +20,7 @@ getHomeData();
 
     return (
     <>
-      <title>react-e_commerce</title>
+      <title>GuildMart.</title>
       <Header cart ={cart} />
 
       <div className="home-page">
