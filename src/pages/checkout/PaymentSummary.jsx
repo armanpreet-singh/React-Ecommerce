@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../api";
 import { formatMoney } from "../../utils/money";
 import { useNavigate } from "react-router";
 export function PaymentSummary ({paymentSummary,loadCart}){
@@ -7,7 +7,7 @@ const createOrder = async () => {
   console.log("Place order clicked");
 
   try {
-    await axios.post("/api/orders");
+    await api.post("/api/orders");
     await loadCart();
     navigate("/orders");
   } catch (err) {

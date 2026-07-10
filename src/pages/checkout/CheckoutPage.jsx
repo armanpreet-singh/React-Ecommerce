@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../api.js";
 import { useState,useEffect } from "react";
 import "./checkout-header.css";
 import "./CheckoutPage.css";
@@ -8,11 +8,11 @@ export function CheckoutPage({ cart ,loadCart}) {
   const[deliveryOptions,setDeliveryOptions]=useState([])
   const[paymentSummary,setPaymentSummary]=useState(null)
   useEffect(()=>{
-    axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+    api.get('/api/delivery-options?expand=estimatedDeliveryTime')
     .then((response)=>{
       setDeliveryOptions(response.data)
     });
-     axios.get('/api/payment-summary')
+     api.get('/api/payment-summary')
     .then((response)=>{
       setPaymentSummary(response.data)
     });

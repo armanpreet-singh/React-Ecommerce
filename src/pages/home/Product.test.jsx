@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import axios from "axios";
+import api from "../../api";
 import { Product } from "./Product";
 
 vi.mock("axios");
@@ -12,7 +12,7 @@ let loadCart;
 beforeEach(() => {
   vi.clearAllMocks();
 
-  axios.post.mockResolvedValue({
+  api.post.mockResolvedValue({
     data: {},
   });
 
@@ -41,7 +41,7 @@ describe("Product Component", () => {
 
     await user.click(addToCartButton);
 
-    expect(axios.post).toHaveBeenCalledWith("api/cart-items", {
+    expect(api.post).toHaveBeenCalledWith("api/cart-items", {
       productId: product.id,
       quantity: 1,
     });

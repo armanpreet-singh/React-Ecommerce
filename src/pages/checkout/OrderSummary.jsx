@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
 import { formatMoney } from "../../utils/money";
 import { DeliveryOptions } from "./DeliveryOptions";
-import axios from "axios";
+import api from "../../api";
+
 
 
 export function OrderSummary({cart,deliveryOptions,loadCart}) {
@@ -15,11 +16,11 @@ export function OrderSummary({cart,deliveryOptions,loadCart}) {
             },
           );
           const deleteCartItem = async () => {
-        await axios.delete(`/api/cart-items/${cartItem.productId}`)
+        await api.delete(`/api/cart-items/${cartItem.productId}`)
         await loadCart();
           }
           const updateCartItem = async () => {
-        await axios.put(`/api/cart-items/${cartItem.productId}`,{
+        await api.put(`/api/cart-items/${cartItem.productId}`,{
            quantity: cartItem.quantity + 1,
         })
         await loadCart();

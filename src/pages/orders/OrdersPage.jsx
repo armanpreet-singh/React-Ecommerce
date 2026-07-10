@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../api";
 import { useState, useEffect,Fragment } from "react";
 import dayjs from "dayjs";
 import "./OrdersPage.css";
@@ -8,7 +8,7 @@ import { formatMoney } from "../../utils/money";
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    axios.get("/api/orders?expand=products").then((response) => {
+    api.get("/api/orders?expand=products").then((response) => {
       setOrders(response.data);
     });
   }, []);
