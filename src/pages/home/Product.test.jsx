@@ -4,7 +4,11 @@ import userEvent from "@testing-library/user-event";
 import api from "../../api";
 import { Product } from "./Product";
 
-vi.mock("axios");
+vi.mock("../../api", () => ({
+  default: {
+    post: vi.fn(),
+  },
+}));
 
 let product;
 let loadCart;
