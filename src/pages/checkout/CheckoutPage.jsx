@@ -4,9 +4,13 @@ import "./checkout-header.css";
 import "./CheckoutPage.css";
 import { PaymentSummary } from "./PaymentSummary.jsx";
 import { OrderSummary } from "./OrderSummary.jsx";
-export function CheckoutPage({ cart ,loadCart}) {
-  const[deliveryOptions,setDeliveryOptions]=useState([])
-  const[paymentSummary,setPaymentSummary]=useState(null)
+export function CheckoutPage({ cart, loadCart }) {
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
+  const [paymentSummary, setPaymentSummary] = useState(null);
+  const totalQuantity = cart.reduce(
+    (total, cartItem) => total + cartItem.quantity,
+    0
+  );
   useEffect(()=>{
     api.get('/api/delivery-options?expand=estimatedDeliveryTime')
     .then((response)=>{
@@ -32,7 +36,7 @@ export function CheckoutPage({ cart ,loadCart}) {
           <div className="checkout-header-middle-section">
             Checkout (
             <a className="return-to-home-link" href="/">
-              3 items
+              {totalQuantity} {totalQuantity === 1 ? "item" : "items"}
             </a>
             )
           </div>
