@@ -5,8 +5,50 @@ import "./OrdersPage.css";
 import { Header } from "../../components/Header";
 import { formatMoney } from "../../utils/money";
 
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart, loadCart }) {
   const [orders, setOrders] = useState([]);
+  const [addingProductIds, setAddingProductIds] = useState([]);
+  const [cartFeedback, setCartFeedback] = useState({});
+
+  const addToCart = async (productId) => {
+    if (addingProductIds.includes(productId)) return;
+
+    setAddingProductIds((currentIds) => [...currentIds, productId]);
+    setCartFeedback((currentFeedback) => ({
+      ...currentFeedback,
+      [productId]: '',
+    }));
+
+    try {
+      await api.post('/api/cart-items', { productId, quantity: 1 });
+    } catch {
+      setCartFeedback((currentFeedback) => ({
+        ...currentFeedback,
+        [productId]: 'Could not add this product. Please try again.',
+      }));
+      setAddingProductIds((currentIds) =>
+        currentIds.filter((id) => id !== productId)
+      );
+      return;
+    }
+
+    try {
+      await loadCart();
+      setCartFeedback((currentFeedback) => ({
+        ...currentFeedback,
+        [productId]: 'Added to cart.',
+      }));
+    } catch {
+      setCartFeedback((currentFeedback) => ({
+        ...currentFeedback,
+        [productId]: 'Added, but the cart count could not be refreshed.',
+      }));
+    } finally {
+      setAddingProductIds((currentIds) =>
+        currentIds.filter((id) => id !== productId)
+      );
+    }
+  };
   useEffect(() => {
     api.get("/api/orders?expand=products").then((response) => {
       setOrders(response.data);
@@ -59,13 +101,28 @@ export function OrdersPage({ cart }) {
                         Arriving on : {dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D')} 
                       </div>
                       <div className="product-quantity">Quantity : {orderProduct.quantity}</div>
-                      <button className="buy-again-button button-primary">
+                      <button
+                        type="button"
+                        className="buy-again-button button-primary"
+                        onClick={() => addToCart(orderProduct.product.id)}
+                        disabled={addingProductIds.includes(orderProduct.product.id)}
+                      >
                         <img
                           className="buy-again-icon"
                           src="images/icons/buy-again.png"
+                          alt=""
                         />
-                        <span className="buy-again-message">Add to Cart</span>
+                        <span className="buy-again-message">
+                          {addingProductIds.includes(orderProduct.product.id)
+                            ? 'Adding...'
+                            : 'Add to Cart'}
+                        </span>
                       </button>
+                      {cartFeedback[orderProduct.product.id] && (
+                        <p className="buy-again-feedback" role="status" aria-live="polite">
+                          {cartFeedback[orderProduct.product.id]}
+                        </p>
+                      )}
                     </div>
 
                     <div className="product-actions">
